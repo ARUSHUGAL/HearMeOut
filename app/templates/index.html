@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Hear Me Out</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Hear Me Out</h1>
+      <p class="tag">Speak. We reflect your vibe — fast, friendly, judgment-free.</p>
+    </header>
+
+    <section class="controls">
+      <button id="btn-record">🎤 Start Recording</button>
+      <button id="btn-stop" disabled>⏹ Stop</button>
+
+      <div class="fallback">
+        <textarea id="manual-text" placeholder="No mic? Type your thoughts here..."></textarea>
+        <button id="btn-analyze-text">Analyze Text</button>
+      </div>
+      <p id="hint"></p>
+    </section>
+
+    <section class="results">
+      <div id="transcript-card" class="card hidden">
+        <h3>You said</h3>
+        <p id="transcript"></p>
+      </div>
+
+      <div id="mood-card" class="card hidden">
+        <h3>Mood recap</h3>
+        <div class="mood-line"><span id="emoji">🌈</span><span id="mood">neutral</span></div>
+        <p id="tip">Tip will appear here</p>
+        <img id="meme" alt="meme" class="meme hidden"/>
+        <a id="playlist" href="#" target="_blank" class="playlist hidden">Open playlist 🎵</a>
+      </div>
+    </section>
+
+    <footer>
+      <small>Not medical advice • Demo MVP • Built with Flask + JS</small>
+    </footer>
+  </div>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

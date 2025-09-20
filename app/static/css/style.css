@@ -1,0 +1,37 @@
+:root{
+  --bg1:#ffd1e8; --bg2:#c9e7ff;
+  --ink:#222; --muted:#555; --card:#fff; --accent:#7c5cff;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; font-family:Inter,system-ui,Arial,sans-serif; color:var(--ink);
+  background:linear-gradient(135deg,var(--bg1),var(--bg2));
+  min-height:100vh; display:flex; align-items:center; justify-content:center;
+}
+.wrap{width:min(920px,92vw); margin:2rem auto}
+header{text-align:center; margin-bottom:1rem}
+h1{margin:0 0 .25rem 0; font-size:2.2rem}
+.tag{margin:.25rem 0 1rem; color:var(--muted)}
+.controls{
+  background:var(--card); padding:1rem; border-radius:16px; box-shadow:0 8px 20px rgba(0,0,0,.08);
+  display:grid; gap:.75rem; align-items:center; justify-items:center;
+}
+.controls button{
+  padding:.75rem 1rem; border:none; border-radius:12px; cursor:pointer; font-weight:600;
+  background:#111; color:#fff; transition:.2s transform;
+}
+.controls button:disabled{opacity:.5; cursor:not-allowed}
+.controls button:hover{transform:translateY(-1px)}
+.fallback{display:grid; gap:.5rem; width:100%}
+#manual-text{
+  width:100%; min-height:90px; border-radius:12px; border:1px solid #ddd; padding:.75rem; font-size:1rem;
+}
+.results{display:grid; gap:1rem; margin-top:1rem}
+.card{
+  background:var(--card); padding:1rem; border-radius:16px; box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+.hidden{display:none}
+.mood-line{display:flex; align-items:center; gap:.5rem; font-size:1.2rem; font-weight:700}
+#meme{width:100%; max-height:260px; object-fit:cover; border-radius:12px; margin-top:.5rem}
+.playlist{display:inline-block; margin-top:.5rem; color:var(--accent); font-weight:700; text-decoration:none}
+footer{margin-top:1rem; text-align:center; color:var(--muted)}
