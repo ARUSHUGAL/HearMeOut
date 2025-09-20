@@ -2,7 +2,7 @@ import random
 from flask import request, jsonify, render_template
 from transformers import pipeline
 
-# Hugging Face sentiment pipeline (baseline: positive/negative/neutral)
+# Hugging Face sentiment pipeline
 sentiment_model = pipeline("sentiment-analysis")
 
 
@@ -10,7 +10,6 @@ def pick_one(opts):
     return random.choice(opts)
 
 
-# Expanded vibes dictionary — you can keep adding!
 TIPS = {
     "positive": [
         "Ok slay 😎🔥 keep that vibe.",
@@ -74,7 +73,7 @@ TIPS = {
     ]
 }
 
-# fallback memes (you can expand these too)
+# fallback memes
 MEMES = {
     "positive": ["/static/memes/you_got_this.jpg"],
     "neutral": ["/static/memes/keep_going.jpg"],
@@ -106,7 +105,7 @@ def register_routes(app):
         label = result["label"]  # "POSITIVE" or "NEGATIVE"
         confidence = float(result["score"])
 
-        # map Hugging Face labels to your vibes
+        # map Hugging Face labels to vibes
         if label == "POSITIVE":
             mood = "positive"
         elif label == "NEGATIVE":
@@ -114,7 +113,7 @@ def register_routes(app):
         else:
             mood = "neutral"
 
-        # 🔥 add keyword-based custom vibes (hacky but fun)
+        # add keyword-based custom vibes
         lowered = text.lower()
         if any(word in lowered for word in ["horny", "thirsty", "down bad"]):
             mood = "horny"
